@@ -1,0 +1,197 @@
+@import "variables.styl"
+body {
+  background-color: #e9ebee;
+  min-width: 350px;
+}
+.container{
+  margin: auto;
+  text-align: center;
+}
+.all-conversations{
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  margin: 30px 30px 0 0;
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  min-height: 746px;
+}
+.top-header{
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  border-bottom: 1px beige;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.main{
+  width: 600px;
+  display: inline-block;
+  text-align: left;
+}
+.header {
+  color: black;
+  margin: 30px 0 30px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+}
+.input{
+  width: 75%;
+  padding: 6px 0 6px 6px;
+  margin-top: 14px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+.button{
+  font-size: 15px;
+  border-radius: 6px;
+  width: 20%;
+  padding: 7px 0;
+  margin-left: 10px;
+  float: right;
+  margin-top: 14px;
+}
+.chat {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  color: white;
+  height: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.bubble{
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+.other-message, .own-message{
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  max-width: 60%;
+  overflow: hidden;
+}
+.other-message{
+  color: black;
+  background-color: lightgrey;
+  float: left;
+}
+.own-message{
+  background-color: wasdWithMePurple;
+  color: white;
+  float: right;
+}
+.pic,.user-info{
+  display: inline-block;
+  vertical-align: top;
+}
+.user-info{
+  margin-left: 20px;
+}
+.profile-pic{
+  max-width: 128px;
+  max-height: 128px;
+  vertical-align: middle;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+a .username{
+  color: black;
+  display: inline;
+  vertical-align: top;
+  font-size: 40px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+.extra-info {
+  line-height: 40px;
+}
+.tagline {
+  font-size: 17px;
+}
+.typing {
+  color: darkgrey;
+  margin-top: 10px;
+  height: 1em;
+}
+.conversation-person{
+  color: black;
+  padding: 10px 0 10px 10px;
+  overflow: hidden;
+  img{
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50px;
+  }
+}
+.conversation-person:hover, .active{
+  background-color: rgba(0, 0, 0, .05);
+}
+.conversation-details{
+  width: 175px;
+  float: right;
+}
+.conversation-username{
+  font-size: 20px;
+  font-weight: lighter;
+  vertical-align: top;
+}
+.conversation-snippet{
+  font-size: 12px;
+  color: darkgrey;
+  max-height: 1.5em;
+  overflow: hidden;
+}
+@media only screen and (max-width: 950px) {
+  .conversation-details, .top-header {
+    display:none;
+  }
+  .all-conversations {
+    width: 75px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .all-conversations{
+    display: none;
+  }
+  .main {
+    width: 90%;
+    margin: auto;
+  }
+  .profile-pic{
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .chat{
+    height: 75vh;
+    padding: 14px;
+  }
+  .input{
+    width: 75%;
+  }
+  a .username {
+    font-size: 24px;
+  }
+  .extra-info {
+    font-size: 12px;
+    line-height: 30px;
+  }
+  .tagline {
+    font-size: 10px;
+  }
+  .user-info {
+    margin-left: 10px;
+    margin-top: 8px;
+  }
+  .bubble{
+    font-size: 14px;
+  }
+  .button{
+    margin-left:0;
+  }
+}

@@ -1,0 +1,134 @@
+@import "user.styl"
+@import "variables.styl"
+.discard-button {
+  border: 1px solid #880c0d;
+  background-color: #ae303e;
+}
+.discard-button:hover {
+  background-color: #cc3945
+}
+.input-tagline, .input-bio, .input-name {
+  font-family: 'Open Sans', sans-serif;
+}
+.input-tagline {
+  width: 400px;
+}
+.input-bio {
+  width: 625px;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 14px;
+  resize: none;
+}
+.input-name{
+  font-size: 20px;
+  float: right;
+  width: 300px;
+  margin-right: 190px;
+}
+.input-game {
+  width: 300px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.add-another, .add-another-fav {
+  width: 125px;
+  font-size: 14px;
+  padding: 0;
+  height: 36px;
+}
+.image-upload{
+  display: none;
+}
+.profile-pic {
+  cursor: pointer;
+}
+h2 {
+  position: absolute;
+  top: 90px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, .5);
+  color: lightgrey;
+  font-weight: 200;
+  padding: 5px 16px 3px 17px;
+  border-bottom-left-radius: 7px;
+  cursor: pointer;
+}
+.pic:hover h2 {
+  background-color: wasdWithMePurple;
+  color: white;
+}
+span.sub-results-box {
+  display: block;
+  position: absolute;
+  height: 500px;
+  margin-left: 0;
+  a{
+    color: black;
+  }
+}
+input:read-only {
+  color: gray;
+}
+.remove{
+  vertical-align: middle;
+  width: 24px;
+  margin: 0 2px 0 2px;
+  cursor: pointer;
+}
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.sub-section {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+.import {
+  width: 120px;
+  font-size: 14px;
+  padding: 4px 0;
+  height: inherit;
+}
+.help{
+   font-size: 12px;
+   margin-bottom: 24px;
+  a{
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .input-name {
+    width: 100%;
+    float: initial;
+  }
+  .input-game {
+    width: 100%;
+  }
+  .input-bio {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 85%;
+    margin-left: 24px;
+  }
+  .input-tagline {
+    margin-top: 20px;
+    font-size: 3vw;
+    margin-left: 0vw;
+    width: 85vw;
+  }
+  h2 {
+    position: absolute;
+    top: -14px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 0;
+    font-size: 18px;
+    border-bottom-right-radius: 2px;
+  }
+  .pic:hover h2 {
+    color: white;
+  }
+}

@@ -1,0 +1,171 @@
+<div class="background">
+    <img src="/images/backgrounds/{{owner.background}}.png">
+</div>
+<div class="profile">
+    <form method="post" enctype="multipart/form-data" action="/user/{{owner.display_name}}/edit">
+        <div class="header">
+            <div class="pic">
+                <img class="profile-pic" src="/images/profile/{{owner.display_name}}.png">
+                <input class="image-upload" type="file" name="image" accept="image/x-png"/>
+                <h2>Change Picture</h2>
+            </div>
+            <div class="user-info">
+                <div class="username">{{owner.display_name}}</div>
+                <div class="extra-info">
+                    <span class="age">{{age}}</span>
+                    &bull;
+                    <span class="location">{{owner.location.city}}, {{owner.location.state}}, {{owner.location.country}}</span>
+                    &bull;
+                    <span class="gender">{{gender}}</span>
+                </div>
+                <input name="tagline" type="text" class="input-tagline" maxlength="50" value="{{owner.tagline}}" maxlength="{{config "taglineMaxLength"}}">
+            </div>
+            <div class="right-side">
+                <a href="/user/{{owner.display_name}}">
+                    <div class="discard-button">Discard</div>
+                </a>
+            </div>
+        </div>
+        <div class="about">
+            <div class="about-header">About</div>
+            <div class="user-name">First Name: <input name="firstname" type="text" class="input-name" value="{{owner.first_name}}" maxlength="{{config "nameMaxLength"}}"></div>
+            <div class="user-name">Last Name: <input name="lastname" type="text" class="input-name" value="{{owner.last_name}}" maxlength="{{config "nameMaxLength"}}"></div>
+            <textarea name="bio" class="input-bio" maxlength="{{config "bioMaxLength"}}" rows="7">{{owner.bio}}</textarea>
+            <div class="sub-section">
+                <div class="availability-type">Weekdays Availability</div>
+                <div class="checkbox"><input type="checkbox" name="weekdaysmorning"{{#if owner.availability.weekdays.morning}}checked{{/if}}> Morning</div>
+                <div class="checkbox"><input type="checkbox" name="weekdaysday"{{#if owner.availability.weekdays.day}}checked{{/if}}> Day</div>
+                <div class="checkbox"><input type="checkbox" name="weekdaysnight"{{#if owner.availability.weekdays.night}}checked{{/if}}> Night</div>
+            </div>
+            <div class="sub-section">
+                <div class="availability-type">Weekends Availability</div>
+                <div class="checkbox"><input type="checkbox" name="weekendsmorning"{{#if owner.availability.weekends.morning}}checked{{/if}}> Morning</div>
+                <div class="checkbox"><input type="checkbox" name="weekendsday"{{#if owner.availability.weekends.day}}checked{{/if}}> Day</div>
+                <div class="checkbox"><input type="checkbox" name="weekendsnight"{{#if owner.availability.weekends.night}}checked{{/if}}> Night</div>
+            </div>
+            <div class="sub-section">
+                <div>
+                    <label>Country:</label>
+                    <select name="country" id="country">
+                        <option value="{{owner.location.country}}">{{owner.location.country}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label>State:</label>
+                    <select name="state" id="state">
+                        <option value="{{owner.location.state}}">{{owner.location.state}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label>City:</label>
+                    <select name="city" id="city">
+                        <option value="{{owner.location.city}}">{{owner.location.city}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="sub-section">
+                <label>Background Image:</label>
+                <select name="background" id="background">
+                {{#each backgrounds}}
+                    <option value="{{this}}">{{this}}</option>
+                {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="fav-games">
+            <div class="fav-games-header">Favorite Games</div>
+            <div class="fav-list">
+            {{#each favorite_games}}
+                <div>
+                    <input readonly type="text" name="fav" class="input-game" value="{{name}}">
+                    <img src="/images/remove.png" class="remove" onclick="deleteGame(this)">
+                </div>
+            {{/each}}
+                <span class="sub-results-box"></span>
+            </div>
+            <div>
+                <button type="button" class="button add-another-fav">Add another</button>
+            </div>
+        </div>
+        <div class="platform steam">
+            <div class="platform-header">
+                <img src="/images/steam.png">
+                Steam
+            </div>
+            <hr>
+            <div>
+                Enter your Steam ID 64: <input type="text" name="steamid" class="steam-id" value="{{owner.accounts.steam.steam_id}}">
+                <button type="button" class="button import" onclick="importSteam()">Import/Refresh</button>
+                <div class="help">Don't know yours? <a target="_blank" href="http://steamid.co/">Click here</a>.</div>
+                <div class="steam-profile">
+                    <a href="{{owner.accounts.steam.profileurl}}" class="steam-name">{{owner.accounts.steam.personaname}}</a>
+                    <img class="steam-avatar" src="{{owner.accounts.steam.avatarfull}}">
+                    <div class="steam-games">
+                    {{#each steam_games}}
+                        <div class="steam-game">
+                            <a href="http://store.steampowered.com/app/{{this.appid}}/">
+                                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{this.appid}}/{{this.img_logo_url}}.jpg">
+                            </a>
+                            <div class="steam-game-name">{{this.name}}</div>
+                        </div>
+                    {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="platform xbox">
+            <div class="platform-header">
+                <img src="/images/xbox.png">
+                Xbox Live
+            </div>
+            <hr>
+            <div>
+                Enter your Xbox Gamertag: <input type="text" name="xbox" class="xbox-gamertag" value="{{owner.accounts.xbox.gamertag}}">
+                <button type="button" class="button import">Connect</button>
+                <div class="xbox-profile"></div>
+            </div>
+        </div>
+        <div class="platform playstation">
+            <div class="platform-header">
+                <img src="/images/playstation.png">
+                Playstation Network
+            </div>
+            <hr>
+            <div>
+                Enter your PSN ID: <input type="text" name="psn" class="psn-username" value="{{owner.accounts.playstation.psn_id}}">
+                <button type="button" class="button import">Connect</button>
+                <div class="psn-profile"></div>
+            </div>
+        </div>
+        <div class="platform twitch">
+            <div class="platform-header">
+                <img src="/images/twitch.png">
+                Twitch
+            </div>
+            <hr>
+            <div>
+                Enter your Twitch Username: <input type="text" name="twitch" class="twitch-username" value="{{owner.accounts.twitch.username}}">
+                <button type="button" class="button import" onclick="loadTwitch()">Connect</button>
+                <div class="twitch-profile"></div>
+            </div>
+        </div>
+        <div class="other-games">
+            <div class="other-games-header">Other Games</div>
+            <div class="game-list">
+            {{#each other_games}}
+                <div>
+                    <input readonly type="text" name="games" class="input-game" value="{{name}}">
+                    <img src="/images/remove.png" class="remove" onclick="deleteGame(this)">
+                </div>
+            {{/each}}
+                <span class="sub-results-box"></span>
+            </div>
+            <div>
+                <button type="button" class="button add-another">Add another</button>
+            </div>
+        </div>
+        <div class="save-changes">
+            <input type="submit" value="Save Changes" class="button">
+        </div>
+    </form>
+</div>

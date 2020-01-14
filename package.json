@@ -1,0 +1,43 @@
+{
+  "name": "WASDWithMe",
+  "version": "0.0.0",
+  "author": "Alan Morel <alanmorel.com>",
+  "contributors": [
+    "Alan Morel <alan.morel@nyu.edu> (http://alanmorel.com)"
+  ],
+  "description": "WASD With Me is the online destination to meet and play with gamers.",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.1.2",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.13.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "^1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "express-session": "^1.14.1",
+    "express-stylus": "^0.1.0",
+    "hbs": "~3.1.0",
+    "helmet": "^3.0.0",
+    "mongoose": "^4.6.0",
+    "morgan": "~1.6.1",
+    "multer": "^1.2.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "redis": "^2.6.2",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.5.1",
+    "stylus": "^0.54.5",
+    "unirest": "^0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlanMorel/wasdWithMe"
+  },
+  "license": "MIT"
+}

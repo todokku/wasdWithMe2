@@ -1,0 +1,169 @@
+body {
+  background-color: #e9ebee;
+}
+.query {
+  color: #000;
+  text-align: left;
+  width: 700px;
+  margin: 32px auto 32px auto;
+  font-size: 22px;
+}
+.search-results,
+.refinement {
+  width: 700px;
+  margin: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding-bottom: 10px;
+}
+.search-results a,
+.refinement a {
+  color: #000;
+}
+.search-results a:hover,
+.refinement a:hover {
+  color: #fff;
+}
+.search-results img {
+  max-width: 128px;
+  vertical-align: middle;
+  margin-left: 12px;
+}
+.search-result {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  cursor: pointer;
+  padding: 8px 0 8px 0;
+}
+.search-result:hover {
+  background-color: #5a26a5;
+  color: #fff;
+}
+.search-info {
+  float: right;
+  width: 520px;
+  overflow: hidden;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+.search-info .search-name {
+  font-size: 20px;
+  padding-bottom: 8px;
+}
+.search-description {
+  font-size: 13px;
+  display: inline-block;
+}
+.pagination {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 32px;
+}
+.pagination a {
+  color: #a9a9a9;
+  margin: 0 12px 0 12px;
+}
+.current {
+  font-weight: bold;
+  color: #000;
+}
+.refinement {
+  color: #000;
+  margin-top: 35px;
+}
+.option-header {
+  margin-bottom: 4px;
+  margin-top: 6px;
+  display: inline-block;
+}
+.option {
+  display: inline-block;
+  font-size: 15px;
+  vertical-align: top;
+}
+.option select {
+  width: 75%;
+  float: right;
+  margin-top: 3px;
+}
+.type {
+  margin-left: 20px;
+}
+.category {
+  font-size: 22px;
+  padding-top: 6px;
+}
+.button-container {
+  float: right;
+  margin-top: 36px;
+}
+.button {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+.type .section {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+  width: inherit;
+  margin-right: 28px;
+}
+span.sub-results-box {
+  top: 190px;
+  left: 110px;
+  min-height: 300px;
+}
+.sub-option {
+  width: 32%;
+  margin-top: 8px;
+  text-align: center;
+}
+.sub-option select {
+  width: 50%;
+  float: inherit;
+}
+.sub-option input[type="number"] {
+  width: 27%;
+}
+.sub-option input[type="text"] {
+  width: 75%;
+}
+@media only screen and (max-width: 750px) {
+  .search-results {
+    width: 96%;
+    padding: 0;
+    margin-left: 2%;
+  }
+  .search-results img {
+    max-width: 20vw;
+    margin-left: 6px;
+  }
+  .search-result {
+    padding: 4px 0 4px 0;
+  }
+  .search-info {
+    width: 70%;
+    padding-right: 1vw;
+    margin-bottom: 6px;
+  }
+  .search-info .search-name {
+    font-size: 3vw;
+  }
+  .search-description {
+    font-size: 2vw;
+  }
+  .query {
+    font-size: 4vw;
+    margin: 5%;
+    width: 100%;
+  }
+  .pagination {
+    font-size: 5vw;
+  }
+  .pagination a {
+    margin: 0 2vw 0 2vw;
+  }
+}

@@ -1,0 +1,47 @@
+{{#if banner}}
+<div class="banner">
+    <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_huge/{{banner}}.jpg"/>
+</div>
+{{/if}}
+<div class="container">
+    {{#if game}}
+    <div class="game">
+        <div class="top">
+            <img class="boxart" src="{{game.boxart}}"/>
+            <div class="game-name">{{game.display_name}}</div>
+            {{#if release}}
+            <div class="release-date">{{release}}</div>
+            {{/if}}
+        </div>
+        {{#if rating}}
+        <div class="rating" style="background-color:{{rating.color}};">{{rating.number}}</div>
+        {{/if}}
+        <div class="game-one-ups" data-one-up-id="{{game._id}}" data-one-up-type="game">
+            <span class="one-ups-value">{{game.one_ups.length}}</span>
+            <span class="one-ups-button {{#if oneUpped}}one-upped{{/if}}">1UP</span>
+        </div>
+        {{#if game.description}}
+        <h1>Description</h1>
+        <div class="game-description">{{game.description}}</div>
+        {{/if}}
+        {{#if game.screenshots}}
+        <h1>Screenshots</h1>
+        {{/if}}
+        {{#each game.screenshots}}
+            <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_huge/{{this}}.jpg" class="screenshot"/>
+        {{/each}}
+        </div>
+        {{#if game.videos}}
+        <h1>Videos</h1>
+        {{/if}}
+        {{#each game.videos}}
+            <div class="video-title">{{this.title}}</div>
+            <div class="video-wrapper">
+                <iframe frameborder="0" src="https://www.youtube.com/embed/{{this.link}}"></iframe>
+            </div>
+        {{/each}}
+        </div>
+    {{else}}
+    <span>Sorry, we could not find this game.</span>
+    {{/if}}
+</div>

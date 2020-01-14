@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        {{>header}}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" href="/stylesheets/primary.css"/>
+        <link rel="stylesheet" href="/stylesheets/{{file}}.css"/>
+    </head>
+    <body>
+        <div class="wasd-header">
+            <a href="/">
+                <img src="/images/logo.png" class="logo">
+            </a>
+            <div class="wasd-text">
+                {{#if user}}
+                <div class="wasd-top">Hello, {{user.display_name}}</div>
+                {{else}}
+                <div class="wasd-top">Hello, Guest</div>
+                {{/if}}
+                <div class="wasd-bottom">
+                {{#if user}}
+                    <a href="/messages/">Messages</a>
+                    <a href="/user/{{user.display_name}}">Profile</a>
+                    <a href="/logout">Log Out</a>
+                {{else}}
+                    <a href="/signup">Sign Up</a>
+                    <a href="/login">Log In</a>
+                {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            <form method="get" action="/search">
+                <select name="type">
+                    <option value="all">All</option>
+                    <option value="users">Users</option>
+                    <option value="games">Games</option>
+                </select>
+                <span class="results-box"></span>
+                <input name="query" class="search-box" type="text" autocomplete="off" placeholder="Search for users or games..." value="{{query}}"/>
+                <input type="image" src="/images/search.png" alt="Submit Form"/>
+            </form>
+        </div>
+        {{{body}}}
+        <footer>
+            <div class="top">
+                <div class="section">
+                    <div class="footer-header">WASD With Me</div>
+                    <div class="footer-item">
+                        <a href="/about/">About</a>
+                    </div>
+                    <div class="footer-item">
+                        <a href="/leaderboards/">Leaderboards</a>
+                    </div>
+                    <div class="footer-item">
+                        <a href="/privacy/">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="footer-header">Follow Us</div>
+                    <div class="footer-item">Facebook</div>
+                    <div class="footer-item">Twitter</div>
+                    <div class="footer-item">Google+</div>
+                </div>
+                <div class="section">
+                    <div class="footer-header madeinny">Made with ♥ in New York</div>
+                    <div class="madeinny-container">
+                        <img src="/images/madeinny.png">
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">Copyright © 2016 WASD With Me. All rights reserved.</div>
+        </footer>
+    </body>
+    {{#each js}}
+        <script src="{{this}}.js"></script>
+    {{/each}}
+    <script src="/javascript/primary.js"></script>
+    <script src="/javascript/analytics.js"></script>
+</html>

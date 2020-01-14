@@ -1,0 +1,45 @@
+h2 {
+  padding: 48px 0;
+  font-family: Roboto;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 2px;
+}
+.banner {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+}
+.banner img {
+  width: 100%;
+}
+.container {
+  color: #000;
+  text-align: center;
+  background-color: #111018;
+}
+.features {
+  text-align: center;
+  background: #5a26a5;
+}
+p {
+  color: #000;
+}
+p a {
+  color: #000;
+}
+.feature {
+  display: inline-block;
+  width: 250px;
+  padding-top: 32px;
+}
+.feature p {
+  margin: 0;
+  padding: 40px;
+  color: #fff;
+}
+.sign-up {
+  background-color: #fff;
+  margin: 0;
+  padding-top: 24px;
+}

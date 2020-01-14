@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="all-conversations">
+        <div class="top-header">Conversations</div>
+        <div class="conversations">
+            {{#each conversations}}
+            <a href="/messages/{{this.name}}">
+                <div class="conversation-person {{#if this.active}}active{{/if}}">
+                    <img src="/images/profile/{{this.name}}.png">
+                    <div class="conversation-details">
+                        <div class="conversation-username">{{this.name}}</div>
+                        <div class="conversation-snippet">{{this.message}}</div>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+    <div class="main">
+        <div class="header">
+            <div class="pic">
+                <img class="profile-pic" src="/images/profile/{{to.display_name}}.png">
+            </div>
+            <div class="user-info">
+                <a href="/user/{{to.display_name}}">
+                    <div class="username">{{to.display_name}}<span class="status {{to.online_status}}"></span></div>
+                </a>
+                <div class="extra-info">
+                    <span class="age">{{age}}</span>
+                    &bull;
+                    <span class="location">{{to.location.city}}, {{to.location.state}}, {{to.location.country}}</span>
+                    &bull;
+                    <span class="gender">{{gender}}</span>
+                </div>
+                <div class="tagline">{{to.tagline}}</div>
+            </div>
+        </div>
+        <div class="chat">
+        {{#each chat}}
+            <div class="bubble">
+                <span class="{{this.css}}-message">{{this.message}}</span>
+            </div>
+        {{/each}}
+        </div>
+        <form class="chat-form">
+            <input class="input" placeholder="Type a message...">
+            <input type="submit" value="Send" class="button">
+        </form>
+        <div class="typing"></div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="refinement">
+    <form method="get" action="/search" onsubmit="return sendQuery()">
+        <div class="type">
+            <div class="category">Users</div>
+            <div class="section">
+                <div class="option">
+                    <div class="option-header">Weekdays Availability</div>
+                    <div><input type="checkbox" value="weekdaysmorning"> Morning</div>
+                    <div><input type="checkbox" value="weekdaysday"> Day</div>
+                    <div><input type="checkbox" value="weekdaysnight"> Night</div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="option">
+                    <div class="option-header">Weekends Availability</div>
+                    <div><input type="checkbox" value="weekendsmorning"> Morning</div>
+                    <div><input type="checkbox" value="weekendsday"> Day</div>
+                    <div><input type="checkbox" value="weekendsnight"> Night</div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="option">
+                    <div>
+                        <div class="option-header">Country</div>
+                        <select name="country" id="country"></select>
+                    </div>
+                    <div>
+                        <div class="option-header">State</div>
+                        <select name="state" id="state"></select>
+                    </div>
+                    <div>
+                        <div class="option-header">City</div>
+                        <select name="city" id="city"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="option sub-option">
+                <div class="option-header">Plays</div>
+                <input type="text" class="plays" placeholder="Enter a game..." onkeyup="searchGame()">
+            </div>
+            <div class="option sub-option">
+                <div class="option-header">Gender</div>
+                <select id="gender">
+                    <option value="-1">Any</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">Other</option>
+                </select>
+            </div>
+            <div class="option sub-option">
+                <div class="option-header">Age</div>
+                <input type="number" min="13" max="100" value="18">
+                to
+                <input type="number" min="13" max="100" value="65">
+            </div>
+            <span class="sub-results-box"></span>
+        </div>
+        <div class="type">
+            <div class="category">Games</div>
+            <div class="option">
+                <div class="option-header">Release</div>
+                <input type="number" min="1970" max="2020" value="1980">
+                to
+                <input type="number" min="1970" max="2020" value="2018">
+            </div>
+        </div>
+        <div class="button-container">
+            <input type="submit" value="Filter Search" class="button">
+        </div>
+    </form>
+</div>
+<div class="query">Showing results for '{{query}}'</div>
+<div class="search-results">
+{{#each results}}
+    <a href='/{{type}}/{{name}}'>
+        <div class="search-result">
+            <img src="{{image}}"/>
+            <div class="search-info">
+                <div class="search-name">{{name}}</div>
+                <div class="search-description">{{description}}</div>
+            </div>
+        </div>
+    </a>
+{{else}}
+    <span>Sorry, your search did not return any results.</span>
+{{/each}}
+</div>
+<div class="pagination">
+{{#each pages}}
+    <a href="/search?type={{../type}}&query={{../query}}&page={{this.page_id}}">
+        <span {{#if this.current}}class="current"{{/if}}>{{this.page_id}}</span>
+    </a>
+{{/each}}
+</div>

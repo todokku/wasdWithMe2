@@ -1,0 +1,123 @@
+{{#if user}}
+    <div class="greeting">
+        <div class="left-greeting">
+            <img src="/images/profile/{{user.display_name}}.png">
+        </div>
+        <div class="right-greeting">
+            <div class="hello">Hello, {{user.display_name}}</div>
+            <div class="options">
+                <span class="option">
+                    <a href="/messages">Check messages</a>
+                </span>
+                <span class="option">
+                    <a href="/user/{{user.display_name}}">View your profile</a>
+                </span>
+            </div>
+        </div>
+    </div>
+{{else}}
+    <div class="promo">
+        <div class="left">
+            <img src="/images/couple.png" class="couple">
+        </div>
+        <div class="right">
+            <h1>Connect with gamers.</h1>
+            <h2>Join WASD With Me to set up gaming sessions, message one another, and browse each other's gaming libraries.</h2>
+        </div>
+    </div>
+    <div class="promo2">
+        <div class="right">
+            <img src="/images/group.png" class="couple">
+        </div>
+        <div class="left">
+            <h1>Seize the moment.</h1>
+            <h2>Don't miss out on all the fun. Sign up to get in on the action!</h2>
+            <div class="sign-up-button">
+                <a class="button" href="/signup">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div class="tagline">
+        <div class="tagline-header">If you're a gamer, welcome home.</div>
+        <div class="logos">
+            <a href="http://store.steampowered.com/" target="_blank">
+                <img src="/images/steam.png">
+            </a>
+            <a href="http://www.xbox.com/" target="_blank">
+                <img src="/images/xbox.png">
+            </a>
+            <a href="https://www.playstation.com" target="_blank">
+                <img src="/images/playstation.png">
+            </a>
+            <a href="https://www.twitch.tv/" target="_blank">
+                <img src="/images/twitch.png">
+            </a>
+        </div>
+        <div class="tagline-footer">Connect your Steam, Xbox, PSN and Twitch accounts for added functionality!</div>
+    </div>
+{{/if}}
+<div class="popular-games">
+    <div class="popular-games-header">Popular games right now!</div>
+    <div class="games">
+    {{#each popular_games}}
+        <div class="game">
+            <a href="/game/{{uri}}">
+                <img src="https://static-cdn.jtvnw.net/ttv-boxart/{{uri}}-272x380.jpg" class="boxart">
+            </a>
+            <div class="game-title">{{name}}</div>
+        </div>
+    {{/each}}
+    </div>
+</div>
+<div class="featured-games-container">
+    <div class="featured-games-header">Featured Games</div>
+    <div class="featured-games">
+    {{#each featured_games}}
+        <div class="featured-game">
+            <a href="/game/{{this.display_name}}">
+                <img src="https://images.igdb.com/igdb/image/upload/t_screenshot_huge/{{this.screenshots.[0]}}.jpg" class="screenshot"/>
+            </a>
+            <div class="featured-game-name">{{this.display_name}}</div>
+        </div>
+    {{/each}}
+    </div>
+</div>
+<div class="news-container">
+    <div class="news-header">In the News</div>
+    <div class="news">
+    {{#each news}}
+        <div class="article">
+            <a href="{{this.url}}" target="_blank">
+                <div class="news-image-container">
+                    <img src="{{this.urlToImage}}">
+                </div>
+                <div class="news-title">{{this.title}}</div>
+            </a>
+        </div>
+    {{/each}}
+    </div>
+</div>
+<div class="live-profiles">
+    {{#if user}}
+    <div class="live-profiles-header">Connect with these gamers!</div>
+    {{else}}
+    <div class="live-profiles-header">See who has already joined!</div>
+    {{/if}}
+    {{#each live_profile_users}}
+        <div class="live-profile">
+            <img src="/images/profile/{{display_name}}.png">
+            <a href="/user/{{display_name}}">
+                <div class="username">{{display_name}}</div>
+            </a>
+            <div class="one-ups" data-one-up-id="{{_id}}" data-one-up-type="user">
+                <span class="one-ups-value">{{one_ups.length}}</span>
+                <span class="one-ups-button {{#if oneUpped}}one-upped{{/if}}">1UP</span>
+            </div>
+            <div class="platforms">
+            {{#each platforms}}
+                <img src="/images/{{this}}.png">
+            {{/each}}
+            </div>
+        </div>
+    {{/each}}
+</div>
